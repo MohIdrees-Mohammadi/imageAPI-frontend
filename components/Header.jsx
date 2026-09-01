@@ -10,7 +10,8 @@ import { LuCar } from "react-icons/lu";
 import { FiInfo } from "react-icons/fi";
 import { LuBuilding2 } from "react-icons/lu";
 import { ChevronDown } from "lucide-react";
-import { FaChevronUp } from "react-icons/fa6";
+import { ChevronUp } from "lucide-react";
+// import { FaChevronUp } from "react-icons/fa6";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -40,10 +41,14 @@ const Header = () => {
         >
           <LuBuilding2 size={19} />
           <span>Listing</span>
-          <ChevronDown size={14} />
+          {
+            isOpen ? <ChevronUp size={14} /> : <ChevronDown size={14} />
+          }
+          
+          
         </h1>
         {isOpen && (
-          <div className="absolute border top-10 left-28 w-36 h-35 bg-white py-2 px-4 flex flex-col justify-center items-center gap-4 shadow-xl rounded-xl transition-all jus">
+          <div className="absolute border top-10 left-28 w-45 h-35 bg-white py-2 px-4 flex flex-col justify-center items-center gap-4 shadow-xl rounded-xl transition-all jus">
             <Link
               className="border-b cursor-pointer w-full h-[62%] border-gray-300 text-center p-2"
               href={"/houses"}
