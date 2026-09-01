@@ -70,7 +70,7 @@ const Header = () => {
         )}
         <Link
           href={"/about"}
-          className="flex items-center gap-1 cursor-pointer hover:bg-gray-100 rounded-xl  transition px-10 "
+          className="flex items-center gap-1 cursor-pointer hover:bg-gray-100 rounded-xl  transition px-2"
         >
           <FiInfo /> <span>About us</span>
         </Link>
