@@ -15,6 +15,7 @@ import { Building2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
+import { LuBuilding2 } from "react-icons/lu";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -107,14 +108,16 @@ const Header = () => {
               </div>
             </Link>
           </div>
-        </div>
+        )}
+
+   
 
         <Link
           href="/about"
           className="flex items-center cursor-pointer hover:bg-gray-100 rounded-xl gap-1 transition duration-300 px-4 py-1"
         >
           <Info size={16} />
-          <span>About Us</span>
+          <span>About Us </span>
         </Link>
 
         <Link
