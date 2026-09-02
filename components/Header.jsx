@@ -15,6 +15,7 @@ import { Building2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
+import { LuBuilding2 } from "react-icons/lu";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -55,29 +56,20 @@ const Header = () => {
           <House size={16} />
           <span>Home</span>
         </Link>
-
-        <div>
-          <h1
-            onClick={() => setIsOpen(!isOpen)}
-            className={`flex items-center cursor-pointer gap-1 rounded-xl px-4 py-1 transition duration-300 ${
-              isOpen ? "bg-gray-100" : "hover:bg-gray-100"
-            }`}
-          >
-            <Building2 size={16} />
-            <span>Listings</span>
-
-            {isOpen ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
-          </h1>
-
-          {/* Listing Dropdown */}
-          <div
-            className={`absolute z-10 top-11 left-24 w-45 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden transition-all duration-300 ease-in-out ${
-              isOpen
-                ? "opacity-100 translate-y-0 visible"
-                : "opacity-0 -translate-y-2 invisible pointer-events-none"
-            }`}
-          >
-            {/* Houses */}
+        <h1
+          onClick={() => setIsOpen(!isOpen)}
+          className="flex items-center gap-1 cursor-pointer hover:bg-gray-100   rounded-xl transition px-4 py-1 "
+        >
+          <LuBuilding2 size={19} />
+          <span>Listing</span>
+          {
+            isOpen ? <ChevronUp size={14} /> : <ChevronDown size={14} />
+          }
+          
+          
+        </h1>
+        {isOpen && (
+          <div className="absolute border top-10 left-28 w-45 h-35 bg-white py-2 px-4 flex flex-col justify-center items-center gap-4 shadow-xl rounded-xl transition-all jus">
             <Link
               href="/houses"
               className="flex items-center gap-3 px-4 py-4 transition hover:bg-gray-50"
@@ -116,14 +108,16 @@ const Header = () => {
               </div>
             </Link>
           </div>
-        </div>
+        )}
+
+   
 
         <Link
           href="/about"
           className="flex items-center cursor-pointer hover:bg-gray-100 rounded-xl gap-1 transition duration-300 px-4 py-1"
         >
           <Info size={16} />
-          <span>About Us</span>
+          <span>About Us </span>
         </Link>
 
         <Link

@@ -12,7 +12,7 @@ import Autoplay from "embla-carousel-autoplay";
 
 const page = () => {
   return (
-    <main className="flex flex-col mx-40 mt-10">
+    <main className="flex flex-col mx-80 mt-10">
       {/* Hero section */}
       <section className="relative mx-auto">
         <Carousel
@@ -23,24 +23,25 @@ const page = () => {
           ]}
         >
           <CarouselContent>
+            <div></div>
             <CarouselItem>
               <img
                 src={"/slide1.jpg"}
-                className="w-[1500px] h-[500px] object-fit rounded-[40px]"
+                className="w-[1300px] h-[500px] object-fit rounded-[40px]"
                 alt="slide1"
               />
             </CarouselItem>
             <CarouselItem>
               <img
                 src={"/slide2.jpg"}
-                className="w-[1500px] h-[500px] object-fit rounded-[40px]"
+                className="w-[1300px] h-[500px] object-fit rounded-[40px]"
                 alt="slide2"
               />
             </CarouselItem>
             <CarouselItem>
               <img
                 src={"/slide3.jpg"}
-                className="w-[1500px] h-[500px] object-fit rounded-[40px]"
+                className="w-[1300px] h-[500px] object-fit rounded-[40px]"
                 alt="slide3"
               />
             </CarouselItem>
