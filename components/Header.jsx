@@ -1,25 +1,44 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { IoCallOutline } from "react-icons/io5";
-import { GoDownload } from "react-icons/go";
-import { TbWorld } from "react-icons/tb";
-import { MdOutlineNightlight } from "react-icons/md";
-import { LuHouse } from "react-icons/lu";
-import { LuCar } from "react-icons/lu";
-import { FiInfo } from "react-icons/fi";
-import { LuBuilding2 } from "react-icons/lu";
+import { Phone } from "lucide-react";
+import { Download } from "lucide-react";
+import { Globe } from "lucide-react";
+import { Moon } from "lucide-react";
+import { House } from "lucide-react";
+import { Car } from "lucide-react";
+import { Info } from "lucide-react";
 import { ChevronDown } from "lucide-react";
 import { ChevronUp } from "lucide-react";
-// import { FaChevronUp } from "react-icons/fa6";
+import { Building2 } from "lucide-react";
+
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const headerRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (headerRef.current && !headerRef.current.contains(e.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <header className="flex items-center justify-between w-[50%] py-4 px-5 rounded-4xl mt-4 mx-auto bg-white shadow-[0_8px_30px_rgba(0,0,0,0.08)]">
+    <header
+      ref={headerRef}
+      className="flex items-center justify-between w-[60%] py-4 px-5 rounded-[40px] mt-4 mx-auto bg-white shadow-[0_8px_30px_rgba(0,0,0,0.08)]"
+    >
       <Image
         src={"/logo.png"}
         width={48}
@@ -27,78 +46,114 @@ const Header = () => {
         className="rounded-full border border-gray-100"
         alt="Logo"
       />
-      <nav className="relative flex items-center gap-4  text-gray-700">
+
+      <nav className="relative flex items-center gap-2 text-gray-700">
         <Link
           href="/"
-          className="flex items-center gap-1 cursor-pointer hover:bg-gray-100 rounded-xl transition px-4 py-1"
+          className="flex items-center cursor-pointer gap-1 rounded-xl px-4 py-1 hover:bg-gray-100  transition duration-300"
         >
-          <LuHouse />
+          <House size={16} />
           <span>Home</span>
         </Link>
-        <h1
-          onClick={() => setIsOpen(!isOpen)}
-          className="flex items-center gap-1 cursor-pointer hover:bg-gray-100   rounded-xl transition px-4 py-1 "
-        >
-          <LuBuilding2 size={19} />
-          <span>Listing</span>
-          {
-            isOpen ? <ChevronUp size={14} /> : <ChevronDown size={14} />
-          }
-          
-          
-        </h1>
-        {isOpen && (
-          <div className="absolute border top-10 left-28 w-45 h-35 bg-white py-2 px-4 flex flex-col justify-center items-center gap-4 shadow-xl rounded-xl transition-all jus">
-            <Link
-              className="border-b cursor-pointer w-full h-[62%] border-gray-300 text-center p-2"
-              href={"/houses"}
-            >
-              <LuHouse
-                className="rounded absolute top-8 left-2 fill-white"
-                size={20}
-              />
 
-              <span className="mr-4">Houses</span>
-              <p className="text-[12px] text-gray-400 ">
-                Properites & aparatments
-              </p>
-            </Link>
+        <div>
+          <h1
+            onClick={() => setIsOpen(!isOpen)}
+            className={`flex items-center cursor-pointer gap-1 rounded-xl px-4 py-1 transition duration-300 ${
+              isOpen ? "bg-gray-100" : "hover:bg-gray-100"
+            }`}
+          >
+            <Building2 size={16} />
+            <span>Listings</span>
+
+            {isOpen ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+          </h1>
+
+          {/* Listing Dropdown */}
+          <div
+            className={`absolute z-10 top-11 left-24 w-45 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden transition-all duration-300 ease-in-out ${
+              isOpen
+                ? "opacity-100 translate-y-0 visible"
+                : "opacity-0 -translate-y-2 invisible pointer-events-none"
+            }`}
+          >
+            {/* Houses */}
             <Link
-              className=" border-gray-300 cursor-pointer text-center w-full ml-2 mb-2"
-              href={"/cars"}
+              href="/houses"
+              className="flex items-center gap-3 px-4 py-4 transition hover:bg-gray-50"
+              onClick={() => setIsOpen(false)}
             >
-              <LuCar className="absolute bottom-5 left-2" size={20} />
-              <span className="mr-11">Cars</span>
-              <p className="text-[12px] text-gray-400">cars & vehicles</p>
+              <div className="flex items-center justify-center w-9 h-9 rounded-xl bg-indigo-50">
+                <House size={17} className="text-blue-600" />
+              </div>
+
+              <div className="flex flex-col">
+                <span className="text-[15px] text-gray-800">Houses</span>
+
+                <p className="text-[12px] text-gray-400">
+                  Properties & Apartments
+                </p>
+              </div>
+            </Link>
+
+            {/* Divider */}
+            <div className="h-px bg-gray-200 "></div>
+
+            {/* Vehicles */}
+            <Link
+              href="/cars"
+              className="flex items-center gap-3 px-4 py-4 transition  hover:bg-gray-50"
+              onClick={() => setIsOpen(false)}
+            >
+              <div className="flex items-center justify-center w-9 h-9 rounded-xl bg-indigo-50">
+                <Car size={17} className="text-blue-600" />
+              </div>
+
+              <div className="flex flex-col">
+                <span className="text-[15px] text-gray-800">Vehicles</span>
+
+                <p className="text-[12px] text-gray-400">Cars & Vehicles</p>
+              </div>
             </Link>
           </div>
-        )}
+        </div>
+
         <Link
-          href={"/about"}
-          className="flex items-center gap-1 cursor-pointer hover:bg-gray-100 rounded-xl  transition px-2"
+          href="/about"
+          className="flex items-center cursor-pointer hover:bg-gray-100 rounded-xl gap-1 transition duration-300 px-4 py-1"
         >
-          <FiInfo /> <span>About us</span>
+          <Info size={16} />
+          <span>About Us</span>
         </Link>
+
         <Link
-          className="flex items-center gap-1 cursor-pointer hover:bg-gray-100 rounded-xl  transition  "
-          href={"/contact"}
+          className="flex items-center cursor-pointer hover:bg-gray-100 rounded-xl gap-1 transition duration-300 px-4 py-1"
+          href="/contact"
         >
-          <IoCallOutline /> <span>Contact</span>
+          <Phone size={16} />
+          <span>Contact</span>
         </Link>
       </nav>
 
-      <div className="flex items-center gap-2">
-        <Link href="">
-          <GoDownload />
-        </Link>
-        <Link href="">
-          <TbWorld />
-        </Link>
-        <Link href="">
-          <MdOutlineNightlight />
+      <div className="flex items-center gap-4">
+        <Link href="#">
+          <Download size={16} />
         </Link>
 
-        <Button>Login</Button>
+        <Link href="#">
+          <Globe size={16} />
+        </Link>
+
+        <Link href="#">
+          <Moon size={16} />
+        </Link>
+
+        <Button
+          className="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow"
+          variant="loginVariant"
+        >
+          Login
+        </Button>
       </div>
     </header>
   );
