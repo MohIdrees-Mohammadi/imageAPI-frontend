@@ -9,7 +9,7 @@ import { Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 const page = () => {
   return (
-    <main className="flex flex-col justify-center  mx-10 lg:mx-80 py-2 font-poppins">
+    <main className="flex flex-col justify-center  mx-10 lg:mx-80 py-2 ">
       {/* Contact Info */}
       <div className="flex flex-col mb-4 mt-5">
         <h1 className="text-[26px] font-semibold lg:text-[32px]">
