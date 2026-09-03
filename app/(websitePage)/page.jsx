@@ -27,18 +27,18 @@ const page = () => {
           <CarouselContent>
             <CarouselItem>
               
-                <img src={"/slide1.jpg"} className='w-[1300px] h-[500px] object-fit rounded-[40px]' alt='slide1' />
+                <img src={"/slide1.jpg"} className='w-325 h-125 object-cover rounded-[40px]' alt='slide1' />
              
 
             </CarouselItem>
             <CarouselItem>
           
-                <img src={"/slide2.jpg"} className='w-[1300px] h-[500px] object-fit rounded-[40px]' alt='slide2' />
+                <img src={"/slide2.jpg"} className='w-325 h-125 object-cover rounded-[40px]' alt='slide2' />
            
             </CarouselItem>
             <CarouselItem>
              
-                <img src={"/slide3.jpg"} className='w-[1300px] h-[500px] object-fit rounded-[40px]' alt='slide3' />
+                <img src={"/slide3.jpg"} className='w-325 h-125 object-covern rounded-[40px]' alt='slide3' />
           
             </CarouselItem>
           </CarouselContent>

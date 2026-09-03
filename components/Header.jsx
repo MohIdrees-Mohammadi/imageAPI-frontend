@@ -38,13 +38,13 @@ const Header = () => {
   return (
     <header
       ref={headerRef}
-      className="flex items-center justify-between w-[60%] py-4 px-5 rounded-[40px] mt-4 mx-auto bg-white shadow-[0_8px_30px_rgba(0,0,0,0.08)]"
+      className="flex items-center justify-between w-[80%] py-2 px-4 rounded-[40px] mt-6 mx-auto bg-white shadow-[0_8px_30px_rgba(0,0,0,0.08)] fixed top-0 left-0 right-0 z-10"
     >
       <Image
         src={"/logo.png"}
         width={48}
         height={48}
-        className="rounded-full border border-gray-100"
+        className="rounded-full border-2 border-gray-100"
         alt="Logo"
       />
 
@@ -69,14 +69,14 @@ const Header = () => {
           
         </h1>
         {isOpen && (
-          <div className="absolute border top-10 left-28 w-45 h-35 bg-white py-2 px-4 flex flex-col justify-center items-center gap-4 shadow-xl rounded-xl transition-all jus">
+          <div className="absolute border top-10 left-25 w-46 h-35 bg-white py-2 px-4 flex flex-col justify-center items-center shadow-xl rounded-xl transition-all overflow-hidden">
             <Link
               href="/houses"
-              className="flex items-center gap-3 px-4 py-4 transition hover:bg-gray-50"
+              className="flex items-center  gap-3 px-2 py-2 mt-2 transition hover:bg-gray-50 "
               onClick={() => setIsOpen(false)}
             >
-              <div className="flex items-center justify-center w-9 h-9 rounded-xl bg-indigo-50">
-                <House size={17} className="text-blue-600" />
+              <div className="flex items-center justify-center w-12 h-8 rounded-[10px] bg-indigo-100 ">
+                <House size={16} className="text-blue-600" />
               </div>
 
               <div className="flex flex-col">
@@ -94,11 +94,11 @@ const Header = () => {
             {/* Vehicles */}
             <Link
               href="/cars"
-              className="flex items-center gap-3 px-4 py-4 transition  hover:bg-gray-50"
+              className="flex items-center gap-3 px-2 py-6 w-full h-[70] transition  hover:bg-gray-50"
               onClick={() => setIsOpen(false)}
             >
-              <div className="flex items-center justify-center w-9 h-9 rounded-xl bg-indigo-50">
-                <Car size={17} className="text-blue-600" />
+              <div className="flex items-center justify-center w-9 h-9 rounded-[10px] bg-indigo-100">
+                <Car size={16} className="text-blue-600" />
               </div>
 
               <div className="flex flex-col">
