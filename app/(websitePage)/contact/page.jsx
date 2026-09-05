@@ -8,7 +8,7 @@ import { MapPin } from "lucide-react";
 import { Clock4 } from "lucide-react";
 import { Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
-const page = () => {
+const Contact = () => {
   
   return (
     <main className="flex flex-col justify-center  mx-10 lg:mx-80 py-2 ">
@@ -174,4 +174,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Contact;
