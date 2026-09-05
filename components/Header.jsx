@@ -38,7 +38,7 @@ const Header = () => {
   return (
     <header
       ref={headerRef}
-      className="flex items-center justify-between w-[60%] py-4 px-5 rounded-[40px] mt-4 mx-auto bg-white shadow-[0_8px_30px_rgba(0,0,0,0.08)]"
+      className="flex items-center justify-between w-[60%] py-4 px-5 rounded-[40px] mt-4 mx-auto shadow-[0_8px_30px_rgba(0,0,0,0.08)] sticky top-0 backdrop-blur-xl z-20"
     >
       <Image
         src={"/logo.png"}
@@ -65,11 +65,11 @@ const Header = () => {
           {
             isOpen ? <ChevronUp size={14} /> : <ChevronDown size={14} />
           }
-          
-          
+
+
         </h1>
         {isOpen && (
-          <div className="absolute border top-10 left-28 w-45 h-35 bg-white py-2 px-4 flex flex-col justify-center items-center gap-4 shadow-xl rounded-xl transition-all jus">
+          <div className="absolute border top-10 left-28 w-45 h-50 bg-white py-2 px-4 flex flex-col justify-center items-center shadow-xl rounded-xl transition-all z-10">
             <Link
               href="/houses"
               className="flex items-center gap-3 px-4 py-4 transition hover:bg-gray-50"
@@ -81,7 +81,6 @@ const Header = () => {
 
               <div className="flex flex-col">
                 <span className="text-[15px] text-gray-800">Houses</span>
-
                 <p className="text-[12px] text-gray-400">
                   Properties & Apartments
                 </p>
@@ -110,7 +109,7 @@ const Header = () => {
           </div>
         )}
 
-   
+
 
         <Link
           href="/about"
@@ -143,7 +142,7 @@ const Header = () => {
         </Link>
 
         <Button
-          className="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow"
+          className="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow hover:bg-blue-600 transition-normal hover:text-white"
           variant="loginVariant"
         >
           Login

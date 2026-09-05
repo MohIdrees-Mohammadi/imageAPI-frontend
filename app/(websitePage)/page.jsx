@@ -27,10 +27,10 @@ const page = () => {
           <CarouselContent>
             <CarouselItem>
                <div className="relative">
-                <div className='w-[1300px] h-[500px] absolute z-10 flex justify-center items-center  rounded-[40px]'>
+                <div className='w-325 h-125 absolute z-10 flex justify-center items-center  rounded-[40px]'>
                   <h1 className="text-3xl font-bold">Hello world</h1>
                 </div>
-                <div className="relative w-[1300px] h-[500px]">
+                <div className="relative w-325 h-325">
                   <div className="absolute z-20 top-0 bottom-0 left-0 right-0 rounded-[40px]  bg-linear-to-t from-gray-900/80 to-gray-50/10"></div>
                 <img src={"/slide1.jpg"} className='w-[1300px] h-[500px] object-cover blur-[2px] rounded-[40px]' alt='slide1' />
                 </div>
@@ -40,19 +40,19 @@ const page = () => {
             </CarouselItem>
             <CarouselItem>
                 <div>
-                <div className='w-[1300px] h-[500px] bg-gray-200 rounded-[40px]'>
+                <div className='w-325 h-125 bg-gray-200 rounded-[40px]'>
                   <h1 className="text-3xl font-bold">Hello world</h1>
                 </div>
-                <img src={"/slide2.jpg"} className='w-[1300px] h-[500px] object-cover blur-[2px] rounded-[40px]' alt='slide2' />
+                <img src={"/slide2.jpg"} className='w-325 h-125 object-cover blur-[2px] rounded-[40px]' alt='slide2' />
                 </div>
            
             </CarouselItem>
             <CarouselItem>
                 <div>
-                  <div className='w-[1300px] h-[500px] bg-gray-200 rounded-[40px]'>
+                  <div className='w-325 h-125 bg-gray-200 rounded-[40px]'>
                   <h1 className="text-3xl font-bold">Hello world</h1>
                 </div>
-                <img src={"/slide3.jpg"} className='w-[1300px] h-[500px] object-cover blur-[2px] rounded-[40px]' alt='slide3' />
+                <img src={"/slide3.jpg"} className='w-325 h-125 object-cover blur-[2px] rounded-[40px]' alt='slide3' />
                 </div>
           
             </CarouselItem>
