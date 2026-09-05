@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+
 import { Phone } from "lucide-react";
 import { Mail } from "lucide-react";
 import { MapPin } from "lucide-react";
@@ -8,6 +9,7 @@ import { Clock4 } from "lucide-react";
 import { Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 const page = () => {
+  
   return (
     <main className="flex flex-col justify-center  mx-10 lg:mx-80 py-2 ">
       {/* Contact Info */}
@@ -62,7 +64,7 @@ const page = () => {
       {/* Form + Location */}
       <div className="flex flex-col lg:flex-row gap-4 mt-5 w-full">
         {/* Message Form */}
-        <form className="border mt-5 mb-10 lg:mb-5 p-4 rounded-2xl w-full lg:w-[60%]">
+        <form className="border mt-5 mb-5  lg:mb-5 p-4 rounded-2xl w-full lg:w-[60%]">
           <h2 className="text-[20px] font-semibold">
             <span className="border-l-4 mr-2 border-l-indigo-600 rounded-2xl"></span>{" "}
             Send Message
@@ -144,7 +146,7 @@ const page = () => {
         </form>
 
         {/* Location */}
-        <div className="w-full lg:w-[40%] mt-5 border rounded-2xl overflow-hidden mb-10 lg:mb-5">
+        <div className="w-full lg:w-[40%] lg:mt-5 border rounded-2xl overflow-hidden mb-10 lg:mb-5">
           {/* Google Map */}
           <div className="w-full h-110 object-cover">
             <iframe
