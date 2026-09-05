@@ -1,5 +1,4 @@
 "use client";
-
 import { Button } from "@/components/ui/button";
 import { Phone } from "lucide-react";
 import { Download } from "lucide-react";
@@ -15,7 +14,6 @@ import { Building2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
-import { LuBuilding2 } from "react-icons/lu";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,7 +36,7 @@ const Header = () => {
   return (
     <header
       ref={headerRef}
-      className="flex items-center justify-between w-[80%] py-2 px-4 rounded-[40px] mt-6 mx-auto bg-white shadow-[0_8px_30px_rgba(0,0,0,0.08)] fixed top-0 left-0 right-0 z-10"
+      className="flex items-center justify-between w-[60%] py-4 px-5 rounded-[40px] mt-4 mx-auto shadow-[0_8px_30px_rgba(0,0,0,0.08)] sticky top-0 backdrop-blur-xl z-20"
     >
       <Image
         src={"/logo.png"}
@@ -56,20 +54,29 @@ const Header = () => {
           <House size={16} />
           <span>Home</span>
         </Link>
-        <h1
-          onClick={() => setIsOpen(!isOpen)}
-          className="flex items-center gap-1 cursor-pointer hover:bg-gray-100   rounded-xl transition px-4 py-1 "
-        >
-          <LuBuilding2 size={19} />
-          <span>Listing</span>
-          {
-            isOpen ? <ChevronUp size={14} /> : <ChevronDown size={14} />
-          }
-          
-          
-        </h1>
-        {isOpen && (
-          <div className="absolute border top-10 left-25 w-46 h-35 bg-white py-2 px-4 flex flex-col justify-center items-center shadow-xl rounded-xl transition-all overflow-hidden">
+
+        <div>
+          <h1
+            onClick={() => setIsOpen(!isOpen)}
+            className={`flex items-center cursor-pointer gap-1 rounded-xl px-4 py-1 transition duration-300 ${
+              isOpen ? "bg-gray-100" : "hover:bg-gray-100"
+            }`}
+          >
+            <Building2 size={16} />
+            <span>Listings</span>
+
+            {isOpen ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+          </h1>
+
+          {/* Listing Dropdown */}
+          <div
+            className={`absolute z-100 top-11 left-24 w-45 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden transition-all duration-300 ease-in-out ${
+              isOpen
+                ? "opacity-100 translate-y-0 visible"
+                : "opacity-0 -translate-y-2 invisible pointer-events-none"
+            }`}
+          >
+            {/* Houses */}
             <Link
               href="/houses"
               className="flex items-center  gap-3 px-2 py-2 mt-2 transition hover:bg-gray-50 "
@@ -81,7 +88,6 @@ const Header = () => {
 
               <div className="flex flex-col">
                 <span className="text-[15px] text-gray-800">Houses</span>
-
                 <p className="text-[12px] text-gray-400">
                   Properties & Apartments
                 </p>
@@ -108,16 +114,14 @@ const Header = () => {
               </div>
             </Link>
           </div>
-        )}
-
-   
+        </div>
 
         <Link
           href="/about"
           className="flex items-center cursor-pointer hover:bg-gray-100 rounded-xl gap-1 transition duration-300 px-4 py-1"
         >
           <Info size={16} />
-          <span>About Us </span>
+          <span>About Us</span>
         </Link>
 
         <Link
@@ -143,8 +147,9 @@ const Header = () => {
         </Link>
 
         <Button
-          className="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow"
+          className="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow hover:bg-blue-600 transition-normal hover:text-white"
           variant="loginVariant"
+          varint="loginVariant"
         >
           Login
         </Button>
