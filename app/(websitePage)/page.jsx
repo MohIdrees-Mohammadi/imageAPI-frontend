@@ -35,16 +35,16 @@ const page = () => {
         >
           <CarouselContent className="w-[1300px]">
             <CarouselItem>
-              <div className="relative bg-amber-200 ">
+              <div className="relative">
                 <div className='w-[1300px] h-[500px] absolute z-30 flex flex-col justify-center items-center  rounded-[40px]'>
                   <h1 className="text-5xl text-white font-bold ">Find Your Dream Home</h1>
                   <p className="text-2xl text-white">Luxury apartments with unparalleled architecture</p>
                 </div>
-                <div className="relative w-325 h-325">
+                <div className="relative w-[1300px] h-[500px]">
                   <div className="absolute z-20 top-0 bottom-0 left-0 right-0 rounded-[40px]  bg-linear-to-t from-gray-900/80 to-gray-50/10"></div>
-                  <img src={"/slide1.jpg"} className='w-[1300px] h-[500px] object-cover blur-[2px] rounded-[40px]' alt='slide1' />
+                  <img src={"/slide2.jpg"} className='w-[1300px] h-[500px] object-cover blur-[2px] rounded-[40px]' alt='slide1' />
                 </div>
-                
+               
               </div>
 
 
