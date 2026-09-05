@@ -36,7 +36,7 @@ const page = () => {
                   <h1 className="text-5xl text-white font-bold ">Find Your Dream Home</h1>
                   <p className="text-2xl text-white">Luxury apartments with unparalleled architecture</p>
                 </div>
-                <div className="relative w-[1300px] h-[500px]">
+                <div className="relative w-325 h-325">
                   <div className="absolute z-20 top-0 bottom-0 left-0 right-0 rounded-[40px]  bg-linear-to-t from-gray-900/80 to-gray-50/10"></div>
                   <img src={"/slide1.jpg"} className='w-[1300px] h-[500px] object-cover blur-[2px] rounded-[40px]' alt='slide1' />
                 </div>
