@@ -1,6 +1,9 @@
 "use client";
 
 import React from "react";
+import ExploreCategories from "@/components/ExploreCategories";
+import WhyAshyaana from "@/components/WhyAshyaana";
+
 import {
   Carousel,
   CarouselContent,
@@ -17,6 +20,7 @@ import { Search } from 'lucide-react';
 
 const page = () => {
   return (
+    <div>
     <main className='flex flex-col mx-80 mt-10'>
 
       {/* Hero section */}
@@ -93,6 +97,13 @@ const page = () => {
 
       </section>
     </main>
+    <div>
+      <ExploreCategories />
+    </div>
+    <div>
+      <WhyAshyaana />
+    </div>
+    </div>
   );
 };
 

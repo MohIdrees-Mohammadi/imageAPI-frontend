@@ -15,7 +15,12 @@
     "clsx": "^2.1.1",
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
+<<<<<<< HEAD
     "lucide-react": "^1.40.0",
+=======
+    "framer-motion": "^13.2.0",
+    "lucide-react": "^1.37.0",
+>>>>>>> 2f323174e297141c6bef0592907f7dfee52e981d
     "next": "16.3.2",
     "react": "19.2.8",
     "react-dom": "19.2.8",
