@@ -42,7 +42,7 @@ const Header = () => {
         src={"/logo.png"}
         width={48}
         height={48}
-        className="rounded-full border border-gray-100"
+        className="rounded-full border-2 border-gray-100"
         alt="Logo"
       />
 
@@ -79,11 +79,11 @@ const Header = () => {
             {/* Houses */}
             <Link
               href="/houses"
-              className="flex items-center gap-3 px-4 py-4 transition hover:bg-gray-50"
+              className="flex items-center  gap-3 px-2 py-2 mt-2 transition hover:bg-gray-50 "
               onClick={() => setIsOpen(false)}
             >
-              <div className="flex items-center justify-center w-9 h-9 rounded-xl bg-indigo-50">
-                <House size={17} className="text-blue-600" />
+              <div className="flex items-center justify-center w-12 h-8 rounded-[10px] bg-indigo-100 ">
+                <House size={16} className="text-blue-600" />
               </div>
 
               <div className="flex flex-col">
@@ -100,11 +100,11 @@ const Header = () => {
             {/* Vehicles */}
             <Link
               href="/cars"
-              className="flex items-center gap-3 px-4 py-4 transition  hover:bg-gray-50"
+              className="flex items-center gap-3 px-2 py-6 w-full h-[70] transition  hover:bg-gray-50"
               onClick={() => setIsOpen(false)}
             >
-              <div className="flex items-center justify-center w-9 h-9 rounded-xl bg-indigo-50">
-                <Car size={17} className="text-blue-600" />
+              <div className="flex items-center justify-center w-9 h-9 rounded-[10px] bg-indigo-100">
+                <Car size={16} className="text-blue-600" />
               </div>
 
               <div className="flex flex-col">
