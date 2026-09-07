@@ -134,14 +134,9 @@ const Header = () => {
       </nav>
 
       <div className="flex items-center gap-4">
-        <Link href="#">
-          <Download size={16} />
-        </Link>
+        
 
-        <Link href="#">
-          <Globe size={16} />
-        </Link>
-
+        
         <Link href="#">
           <Moon size={16} />
         </Link>
