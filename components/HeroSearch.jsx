@@ -13,7 +13,7 @@ const locations = [
 
 export default function HeroSearch() {
   return (
-    <section className="h-70 bg-linear-to-b from-[#E8EAFA] via-[#f4f5fa] to-[#fafafa] px-auto mt-24">
+    <section className="h-70 bg-linear-to-b from-[#E8EAFA] via-[#f4f5fa] to-[#fafafa] px-auto mt-12">
       
       <div className="mx-auto flex  max-w-6xl py-6 flex-col items-center justify-center">
 

@@ -86,7 +86,7 @@ export default function WhyAshyaana() {
           return (
             <Card
               key={feature.id}
-              className="group relative border-transparent shadow-none bg-transparent hover:bg-slate-200/70 hover:-translate-y-1.5 hover:shadow-md transition-all duration-300 ease-in-out cursor-pointer rounded-xl p-2"
+              className="group relative border-transparent shadow-none bg-transparent odd:hover:bg-slate-200/70 hover:-translate-y-1.5 hover:shadow-md transition-all duration-300 ease-in-out cursor-pointer rounded-xl p-2"
             >
               <CardContent className="p-6 flex flex-col justify-between h-full space-y-4">
                 <div>
