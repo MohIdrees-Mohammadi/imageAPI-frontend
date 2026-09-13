@@ -11,10 +11,10 @@ const locations = [
   "Wazir Akbar Khan",
 ];
 
-export default function HeroSearch() {
+export default function HeroSearch({ value, onSearchChange }) {
   return (
     <section className="h-90 bg-linear-to-b from-[#E8EAFA] via-[#f4f5fa] to-[#fafafa] px-auto mt-12">
-      
+
       <div className="mx-auto flex  max-w-6xl py-10 flex-col items-center justify-center">
 
         {/* Badge */}
@@ -49,6 +49,8 @@ export default function HeroSearch() {
             <input
               type="text"
               placeholder="Search area... (e.g., Shahr-e-Naw, Khairkhana)"
+              value={value}
+              onChange={(e) => onSearchChange(e.target.value)}
               className="w-full bg-transparent py-5 text-lg text-gray-400 outline-none placeholder:text-[#9aa2b1]"
             />
 

@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 
 import { items, houses } from "@/constant/data";
+import Image from "next/image";
 
 const statusButton = ["All", "Buy", "Rent", "Mortgage"];
 
@@ -36,44 +37,60 @@ const Page = () => {
   });
 
   const filteredItems = houses
-  .filter((item) => {
-    if (filters.propertyType !== "All" &&
+    .filter((item) => {
+
+      if (
+        filters.search &&
+        !item.title.toLowerCase().includes(filters.search.toLowerCase())
+      ) {
+        return false;
+      }
+
+      if (filters.propertyType !== "All" &&
         item.propertyType !== filters.propertyType) return false;
 
-    if (filters.status !== "All" &&
+      if (filters.status !== "All" &&
         item.status !== filters.status) return false;
 
-    if (filters.currency !== "Any" &&
+      if (filters.currency !== "Any" &&
         item.currency !== filters.currency) return false;
 
-    if (filters.bedrooms !== "All" &&
+      if (filters.bedrooms !== "All" &&
         item.bedrooms !== Number(filters.bedrooms)) return false;
 
-    if (filters.price !== "price") {
-      const [min, max] = filters.price.split("-").map(Number);
+      if (filters.price !== "price") {
+        const [min, max] = filters.price.split("-").map(Number);
 
-      if (filters.price === "250000+" && item.price < 250000)
-        return false;
+        if (filters.price === "250000+" && item.price < 250000)
+          return false;
 
-      if (max && (item.price < min || item.price > max))
-        return false;
-    }
+        if (max && (item.price < min || item.price > max))
+          return false;
+      }
 
-    return true;
-  })
-  .sort((a, b) => {
-    if (filters.sort === "price-low") return a.price - b.price;
-    if (filters.sort === "price-high") return b.price - a.price;
+      return true;
+    })
+    .sort((a, b) => {
+      if (filters.sort === "price-low") return a.price - b.price;
+      if (filters.sort === "price-high") return b.price - a.price;
 
-    return 0;
-  });
+      return 0;
+    });
 
   return (
     <>
-      <HeroSearch />
+      <HeroSearch
+        value={filters.search}
+        onSearchChange={(value) =>
+          setFilters((prev) => ({
+            ...prev,
+            search: value,
+          }))
+        }
+      />
 
       <div className="mx-80 flex flex-col mh-[80vh]">
-        
+
         <Select
           value={filters.propertyType}
           onValueChange={(value) =>
@@ -118,10 +135,10 @@ const Page = () => {
           </SelectContent>
         </Select>
 
-      
+
         <div className="mt-3 flex items-center gap-2">
 
-          
+
           <div className="flex h-10 items-center rounded-xl bg-gray-300/40  p-1">
             {statusButton.map((button) => (
               <button
@@ -133,20 +150,19 @@ const Page = () => {
                     status: button,
                   }))
                 }
-                className={`h-8 rounded-lg px-3 text-sm transition ${
-                  filters.status === button
-                    ? "bg-white font-medium text-gray-900 shadow-sm"
-                    : "text-gray-500 hover:text-gray-900"
-                }`}
+                className={`h-8 rounded-lg px-3 text-sm transition ${filters.status === button
+                  ? "bg-white font-medium text-gray-900 shadow-sm"
+                  : "text-gray-500 hover:text-gray-900"
+                  }`}
               >
                 {button}
               </button>
             ))}
           </div>
 
-          
+
           <div className="flex h-10 items-center rounded-xl bg-gray-300/40 p-1">
-          <button
+            <button
               type="button"
               onClick={() =>
                 setFilters((prev) => ({
@@ -154,11 +170,10 @@ const Page = () => {
                   currency: "Any",
                 }))
               }
-              className={`flex h-8 items-center gap-1 rounded-lg px-3 text-sm transition ${
-                filters.currency === "Any"
-                  ? "bg-white font-medium text-gray-900 shadow-sm"
-                  : "text-gray-500 hover:text-gray-900"
-              }`}
+              className={`flex h-8 items-center gap-1 rounded-lg px-3 text-sm transition ${filters.currency === "Any"
+                ? "bg-white font-medium text-gray-900 shadow-sm"
+                : "text-gray-500 hover:text-gray-900"
+                }`}
             >
               <DollarSign size={15} />
               Any
@@ -171,11 +186,10 @@ const Page = () => {
                   currency: "USD",
                 }))
               }
-              className={`flex h-8 items-center gap-1 rounded-lg px-3 text-sm transition ${
-                filters.currency === "USD"
-                  ? "bg-white font-medium text-gray-900 shadow-sm"
-                  : "text-gray-500 hover:text-gray-900"
-              }`}
+              className={`flex h-8 items-center gap-1 rounded-lg px-3 text-sm transition ${filters.currency === "USD"
+                ? "bg-white font-medium text-gray-900 shadow-sm"
+                : "text-gray-500 hover:text-gray-900"
+                }`}
             >
               <DollarSign size={15} />
               USD
@@ -189,19 +203,18 @@ const Page = () => {
                   currency: "AFN",
                 }))
               }
-              className={`flex h-8 items-center gap-1 rounded-lg px-3 text-sm transition ${
-                filters.currency === "AFN"
-                  ? "bg-white font-medium text-gray-900 shadow-sm"
-                  : "text-gray-500 hover:text-gray-900"
-              }`}
+              className={`flex h-8 items-center gap-1 rounded-lg px-3 text-sm transition ${filters.currency === "AFN"
+                ? "bg-white font-medium text-gray-900 shadow-sm"
+                : "text-gray-500 hover:text-gray-900"
+                }`}
             >
               ؋ AFN
             </button>
           </div>
 
-        
+
           <Select
-         
+
             value={filters.price}
             onValueChange={(value) =>
               setFilters((prev) => ({
@@ -238,7 +251,7 @@ const Page = () => {
             </SelectContent>
           </Select>
 
-         
+
           <Select
             value={filters.bedrooms}
             onValueChange={(value) =>
@@ -281,7 +294,7 @@ const Page = () => {
             </SelectContent>
           </Select>
 
-         
+
           <Select
             value={filters.sort}
             onValueChange={(value) =>
@@ -300,7 +313,7 @@ const Page = () => {
             </SelectTrigger>
 
             <SelectContent className="bg-white absolute top-1 -left-15">
-             
+
 
               <SelectItem value="price-low">
                 Price: Low to High
@@ -314,21 +327,22 @@ const Page = () => {
         </div>
 
         {
-          filteredItems.length >= 0 ? (
+          filteredItems.length > 0 ? (
             filteredItems.map((house) => (
-            <div>
-              <h1>{house.title}</h1>
-              <h2>{house.price}</h2>
-            </div>
-          ))
-          ): (
+              <div key={house.id}>
+                <h1>{house.title}</h1>
+                <h2>{house.price}</h2>
+              </div>
+            ))
+          ) : (
             <div>
               <h1>Nothing Found!</h1>
             </div>
           )
         }
 
-      
+        <Image src ="https://plus.unsplash.com/premium_photo-1789052897449-3ad438f675d9?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" width = {200} height={200} />
+
       </div>
     </>
   );
